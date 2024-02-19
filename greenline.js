@@ -1,23 +1,32 @@
 const tickets = document.querySelectorAll('.selected-ticket')
 let ticketCount = 0
 let ticketLeft = 40
+const maxTicketCount = []
 for(const selectedTicket of tickets){
     
     selectedTicket.addEventListener('click', function selectedTicketByClass() {
         const seatNumber = selectedTicket.querySelector('h5').innerText
         const removeBgToSeatNumber = selectedTicket.classList.remove("bg-white")
         const addBgToSeatNumber = selectedTicket.classList.add("bg-green-400")
-        if(ticketCount > 3  ){
-            alert('You have reached maximum ticket reservation')
-        }
-        
-        
+     
         // count ticket number
         ticketCount+= 1
         ticketLeft-= 1
+
+        maxTicketCount.push(seatNumber)
+        console.log(maxTicketCount);
+        let maxTicket = []
+        for (let i = 0; i < maxTicketCount.length; i++) {
+            if(maxTicketCount.length >= 5){
+                alert('you have reached maximum')
+                return
+            }
+            
+        }
         setInnerText('seat-count', ticketCount)
         setInnerText('ticket-left', ticketLeft)
         
+       
         
         // calculation ticket price
         const PerTicketPrice = document.getElementById('per-ticket-price').innerText
@@ -90,6 +99,12 @@ for(const selectedTicket of tickets){
         nextBtn.addEventListener('click', function goToNext() {
             const modal = document.getElementById('modal')
             modal.classList.remove('hidden')
+
+            const continueBtn = document.getElementById('Continue-btn')
+            continueBtn.addEventListener('click', function returnPage() {
+                modal.classList.add('hidden')
+            })
+            
             
 
         })
