@@ -9,6 +9,7 @@ for(const selectedTicket of tickets){
             alert('you have reached maximum')
             return
         }
+        
         const seatNumber = selectedTicket.querySelector('h5').innerText
         const removeBgToSeatNumber = selectedTicket.classList.remove("bg-white")
         const addBgToSeatNumber = selectedTicket.classList.add("bg-green-400")
