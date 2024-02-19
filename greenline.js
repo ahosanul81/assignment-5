@@ -16,7 +16,7 @@ for(const selectedTicket of tickets){
         // count ticket number
         ticketCount+= 1
         ticketLeft-= 1
-  
+        
         console.log(maxTicketCount);
         let maxTicket = []
  
@@ -29,6 +29,7 @@ for(const selectedTicket of tickets){
         
         // calculation ticket price
         const PerTicketPrice = document.getElementById('per-ticket-price').innerText
+        console.log(PerTicketPrice ,'ticket price');
         const ticketTable = document.getElementById('ticket-cart-table-row')
       
         const tr = document.createElement('tr')
