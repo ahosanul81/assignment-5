@@ -5,6 +5,10 @@ const maxTicketCount = []
 for(const selectedTicket of tickets){
     
     selectedTicket.addEventListener('click', function selectedTicketByClass() {
+        if(ticketCount === 4){
+            alert('you have reached maximum')
+            return
+        }
         const seatNumber = selectedTicket.querySelector('h5').innerText
         const removeBgToSeatNumber = selectedTicket.classList.remove("bg-white")
         const addBgToSeatNumber = selectedTicket.classList.add("bg-green-400")
@@ -12,17 +16,12 @@ for(const selectedTicket of tickets){
         // count ticket number
         ticketCount+= 1
         ticketLeft-= 1
-
-        maxTicketCount.push(seatNumber)
+  
         console.log(maxTicketCount);
         let maxTicket = []
-        for (let i = 0; i < maxTicketCount.length; i++) {
-            if(maxTicketCount.length >= 5){
-                alert('you have reached maximum')
-                return
-            }
-            
-        }
+ 
+        maxTicketCount.push(seatNumber)
+        
         setInnerText('seat-count', ticketCount)
         setInnerText('ticket-left', ticketLeft)
         
