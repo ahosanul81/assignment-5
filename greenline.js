@@ -47,6 +47,9 @@ for(const selectedTicket of tickets){
 
         const totalTicketPrice = parseInt(PerTicketPrice) * ticketCount 
         setInnerText('grand-total', totalTicketPrice)
+
+        // total price 
+        setInnerText('total-cost', totalTicketPrice)
         
 
         // discount by coupon
