@@ -1,14 +1,31 @@
 const tickets = document.querySelectorAll('.selected-ticket')
 let ticketCount = 0
 let ticketLeft = 40
+let uniqueTickets = []
+console.log(uniqueTickets, 'uniqueTickets');
+
 const maxTicketCount = []
 for(const selectedTicket of tickets){
     
     selectedTicket.addEventListener('click', function selectedTicketByClass() {
+        // if () {
+            
+        // }
         if(ticketCount === 4){
             alert('you have reached maximum')
             return
         }
+       
+         // Check if the ticket has already been selected
+         if (uniqueTickets.includes(selectedTicket.innerText)) {
+            alert('This ticket has already been selected.');
+            return;
+        }
+        else{
+            // Add the selected ticket to the list
+            uniqueTickets.push(selectedTicket.innerText);
+        }
+        
         
         const seatNumber = selectedTicket.querySelector('h5').innerText
         const removeBgToSeatNumber = selectedTicket.classList.remove("bg-white")
@@ -128,6 +145,9 @@ for(const selectedTicket of tickets){
 //         nextBtn.attributes.remove('disabled')
 //     }
 // }
+
+
+
 
 // common function
 function setInnerText(id, value) {
